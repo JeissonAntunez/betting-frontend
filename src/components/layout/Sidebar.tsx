@@ -17,7 +17,7 @@ const MENU = [
  */
 export function Sidebar() {
   return (
-    <aside className="hidden w-60 shrink-0 border-r border-neutral-100 bg-white= lg:block">
+    <aside className="hidden w-60 shrink-0 border-r border-neutral-100 bg-green-500 lg:block">
       <nav className="flex flex-col py-2">
         {MENU.map(({ label, href, icon: Icon }) => (
           <Link
