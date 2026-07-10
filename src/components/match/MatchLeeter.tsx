@@ -27,7 +27,7 @@ export function MatchLeeter({ matches, isLoading, emptyMessage }: MatchGridProps
   }
 
   return (
-    <div className="flex flex-row rounded-lg border border-neutral-100 bg-white">
+    <div className="flex  rounded-lg border border-neutral-100 bg-white  flex-row space-x-4 justify-center items-center overflow-x-auto overflow-y-hidden p-3">
       {matches.map((match) => (
         <MatchCardPanel key={match.id} match={match} />
       ))}
