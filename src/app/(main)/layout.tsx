@@ -1,9 +1,10 @@
 import { Navbar } from "@/components/layout/Navbar";
 import { Sidebar } from "@/components/layout/Sidebar";
 import { BetSlip } from "@/components/betslip/BetSlip";
-import {MatchLeeter} from "@/components/match/MatchLeeter";
+import { MatchLeeter } from "@/components/match/MatchLeeter";
 import { getMatches } from "@/services/matchService";
 import { MatchOddsCarousel } from "@/components/carrusel/CarouselSize";
+
 /**
  * Layout del grupo (main): Navbar arriba + Sidebar / Contenido / BetSlip.
  * Responsive:
@@ -16,29 +17,29 @@ import { MatchOddsCarousel } from "@/components/carrusel/CarouselSize";
  */
 export default async function MainLayout({ children }: { children: React.ReactNode }) {
   const matches = await getMatches();
+  
   return (
-    
     <div className="flex min-h-screen flex-col">
       <Navbar />
     
-      <div className="mx-auto flex w-full max-w-[2300px] flex-1">
+      <div className="mx-auto flex w-full max-w-[2900px] flex-1">
         <Sidebar />
-          <div className="mx-auto flex flex-col max-w-[2000px]  flex-1 bg-blue-500">
-          <div>
-            fwfafawf
-          </div>
+        
+        {/* Se añade 'gap-4' para separar automáticamente el carrusel del bloque amarillo */}
+        <div className="mx-auto flex flex-col max-w-[2140px] flex-1 bg-green-500  ">
           <MatchOddsCarousel matches={matches} />
+          
           <div className="mx-auto flex w-full flex-1 bg-yellow-500">
-        <main className="min-w-0 flex-1 px-3 py-4 lg:px-6">{children}</main>
-        <div className="hidden w-[340px] shrink-0 px-3 py-4 xl:block">
-          <div className="sticky top-20">
-            <BetSlip />
+            <main className="min-w-0 flex-1 px-3 py-4 lg:px-6">{children}</main>
+            
+            <div className="hidden w-[340px] shrink-0 px-3 py-4 xl:block">
+              <div className="sticky top-20">
+                <BetSlip />
+              </div>
+            </div>
           </div>
-        </div>
-        </div>
-        </div>
         </div>
       </div>
-    
+    </div>
   );
 }

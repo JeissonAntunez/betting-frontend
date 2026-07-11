@@ -18,11 +18,10 @@ export default async function HomePage() {
   const matches = await getMatches();
 
   return (
-    <div className="space-y-6 bg-blue-500">
+    <div className="space-y-6 bg-red-500">
       
       <section>
-        <h1 className="mb-3 text-base font-bold text-neutral-800">Súmate a la acción</h1>
-        
+      
         <MatchGrid matches={matches} emptyMessage="No hay partidos programados por ahora." />
       </section>
     </div>
