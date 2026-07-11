@@ -61,9 +61,10 @@ export function MatchOddsCard({ match, onSelectOdds }: MatchOddsCardProps) {
   const isLive = match.status === "LIVE"
 
   return (
-    <Card className="overflow-hidden border-0 bg-[#0f1115] text-white shadow-lg">
+   <Card className="h-full overflow-hidden border-0 bg-[#0f1115] text-white shadow-lg">
+
       {/* Header: fecha/hora o minuto en vivo + torneo */}
-      <div className="flex items-center justify-between bg-[#161920] px-3 py-2">
+      <div className="flex items-center justify-between bg-[#161920] px-3 py-2 mb-[30%]">
         {isLive ? (
           <span className="flex items-center gap-1.5 text-xs font-semibold text-red-500">
             <span className="h-1.5 w-1.5 animate-pulse rounded-full bg-red-500" />
@@ -170,14 +171,14 @@ export function MatchOddsCarousel({
   }
 
   return (
-    <Carousel opts={{ align: "start" }} className="w-full">
+    <Carousel opts={{ align: "start" }} className="w-full h-full">
       <CarouselContent>
         {matches.map((match) => (
           <CarouselItem
             key={match.id}
             className="basis-auto"
           >
-            <div className="w-[260px] p-1">
+            <div className="w-[460px] h-full  p-1  m-1">
               <MatchOddsCard match={match} onSelectOdds={onSelectOdds} />
             </div>
           </CarouselItem>
