@@ -190,7 +190,7 @@ function CarouselPrevious({
       className={cn(
         "absolute touch-manipulation rounded-full z-10 opacity-0 group-hover:opacity-100 transition-opacity duration-300",
         orientation === "horizontal"
-          ? "inset-y-0 -left-2 my-auto"
+          ? "inset-y-0 -left-[-2] my-auto"
           : "-top-12 left-1/2 -translate-x-1/2 rotate-90",
         className
       )}
@@ -222,7 +222,7 @@ function CarouselNext({
       className={cn(
         "absolute touch-manipulation rounded-full z-10 opacity-0 group-hover:opacity-100 transition-opacity duration-300",
         orientation === "horizontal"
-          ? "inset-y-0 -right-2 my-auto"
+          ? "inset-y-0 -right-1 my-auto"
           : "-bottom-12 left-1/2 -translate-x-1/2 rotate-90",
         className
       )}

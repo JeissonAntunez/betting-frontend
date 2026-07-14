@@ -1,45 +1,41 @@
 import { Navbar } from "@/components/layout/Navbar";
 import { Sidebar } from "@/components/layout/Sidebar";
 import { BetSlip } from "@/components/betslip/BetSlip";
-import { MatchLeeter } from "@/components/match/MatchLeeter";
 import { getMatches } from "@/services/matchService";
 import { MatchOddsCarousel } from "@/components/carrusel/CarouselSize";
 
-/**
- * Layout del grupo (main): Navbar arriba + Sidebar / Contenido / BetSlip.
- * Responsive:
- * - Mobile (<lg): solo Navbar + contenido a ancho completo. El BetSlip se
- *   accede vía la ruta /betslip (ver app/(main)/betslip/page.tsx) o un
- *   botón flotante "Ver apuesta (n)" — se puede añadir luego con un store
- *   selector de `selections.length`.
- * - Desktop (>=lg): grid de 3 columnas (sidebar / contenido / betslip),
- *   igual al layout original de Betano.
- */
+// app/(main)/layout.tsx
 export default async function MainLayout({ children }: { children: React.ReactNode }) {
-  const matches = await getMatches();
-  
+  const matches = await getMatches()
+
   return (
-    <div className="flex min-h-screen flex-col">
+    <div className="flex min-h-screen flex-col bg-neutral-50">
       <Navbar />
-    
-      <div className="mx-auto flex w-full max-w-[2900px] flex-1">
+
+      <div className="flex flex-1 overflow-hidden">
         <Sidebar />
-        
-        {/* Se añade 'gap-4' para separar automáticamente el carrusel del bloque amarillo */}
-        <div className="mx-auto flex flex-col max-w-[2140px] flex-1 bg-green-500  ">
-          <MatchOddsCarousel matches={matches} />
-          
-          <div className="mx-auto flex w-full flex-1 bg-yellow-500">
-            <main className="min-w-0 flex-1 px-3 py-4 lg:px-6">{children}</main>
-            
-            <div className="hidden w-[340px] shrink-0 px-3 py-4 xl:block">
-              <div className="sticky top-20">
+
+        <div className="flex min-w-0 flex-1 flex-col">
+
+          {/* overflow-hidden es crítico para que Embla no cree scroll horizontal */}
+          <div className="w-full overflow-hidden bg-[#0a0d11]">
+            <MatchOddsCarousel matches={matches} />
+          </div>
+
+          <div className="flex flex-1 overflow-hidden">
+            <main className="min-w-0 flex-1 overflow-y-auto px-3 py-4 lg:px-6">
+              {children}
+            </main>
+
+            <aside className="hidden w-[340px] shrink-0 border-l border-neutral-200 px-3 py-4 xl:block">
+              <div className="sticky top-4">
                 <BetSlip />
               </div>
-            </div>
+            </aside>
           </div>
+
         </div>
       </div>
     </div>
-  );
+  )
 }
