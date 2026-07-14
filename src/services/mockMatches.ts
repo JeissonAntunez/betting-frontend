@@ -146,4 +146,58 @@ export const MOCK_MATCHES: Match[] = [
       ],
     },
   },
+  {
+    id: "8",
+    tournament: "Mundial",
+    homeTeam: { id: "pt", name: "Portugal" },
+    awayTeam: { id: "it", name: "Italia" },
+    startTime: new Date(Date.now() + 1000 * 60 * 60 * 25).toISOString(),
+    status: "SCHEDULED",
+    mainMarket: {
+      id: "m7",
+      type: "MATCH_WINNER",
+      name: "Resultado del partido",
+      odds: [
+        { id: "o19", label: "1", value: 2.2, marketType: "MATCH_WINNER" },
+        { id: "o20", label: "X", value: 3.15, marketType: "MATCH_WINNER" },
+        { id: "o21", label: "2", value: 3.3, marketType: "MATCH_WINNER" },
+      ],
+    },
+  },
+  {
+    id: "9",
+    tournament: "Mundial",
+    homeTeam: { id: "pt", name: "Portugal" },
+    awayTeam: { id: "it", name: "Italia" },
+    startTime: new Date(Date.now() + 1000 * 60 * 60 * 25).toISOString(),
+    status: "SCHEDULED",
+    mainMarket: {
+      id: "m7",
+      type: "MATCH_WINNER",
+      name: "Resultado del partido",
+      odds: [
+        { id: "o19", label: "1", value: 2.2, marketType: "MATCH_WINNER" },
+        { id: "o20", label: "X", value: 3.15, marketType: "MATCH_WINNER" },
+        { id: "o21", label: "2", value: 3.3, marketType: "MATCH_WINNER" },
+      ],
+    },
+  },
+  {
+    id: "10",
+    tournament: "Mundial",
+    homeTeam: { id: "pt", name: "Portugal" },
+    awayTeam: { id: "it", name: "Italia" },
+    startTime: new Date(Date.now() + 1000 * 60 * 60 * 25).toISOString(),
+    status: "SCHEDULED",
+    mainMarket: {
+      id: "m7",
+      type: "MATCH_WINNER",
+      name: "Resultado del partido",
+      odds: [
+        { id: "o19", label: "1", value: 2.2, marketType: "MATCH_WINNER" },
+        { id: "o20", label: "X", value: 3.15, marketType: "MATCH_WINNER" },
+        { id: "o21", label: "2", value: 3.3, marketType: "MATCH_WINNER" },
+      ],
+    },
+  },
 ];
